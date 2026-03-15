@@ -9,4 +9,9 @@ std::string Spider::start_url() const {
     return start_url_;
 }
 
+bool Spider::allowed(const std::string& url) const {
+    return url.find(start_url_) != std::string::npos;
+
+}
+
 }

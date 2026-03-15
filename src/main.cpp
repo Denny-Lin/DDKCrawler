@@ -4,6 +4,7 @@
 #include <ddkcrawler/downloader.h>
 #include <ddkcrawler/parser.h>
 #include <ddkcrawler/scheduler.h>
+#include <ddkcrawler/spider.h>
 
 #include <curl/curl.h>
 
@@ -19,7 +20,9 @@ int main() {
 
     std::unordered_set<std::string> visited;
 
-    scheduler.push("https://example.com");
+    Spider spider("https://example.com");
+    
+    scheduler.push(spider.start_url());
 
     int max_pages = 5;
     int count = 0;
@@ -52,7 +55,7 @@ int main() {
 
         for (const auto& link : filtered_links) {
 
-            if (!visited.count(link)) {
+            if (spider.allowed(link)) {
                 scheduler.push(link);
             }
 
