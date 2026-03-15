@@ -31,23 +31,28 @@ Storage
 ## Project Structure
 ```
 DDKCrawler
+├── CMakeLists.txt
+│
 ├── include
-│ ├── spider.h
-│ ├── scheduler.h
-│ ├── downloader.h
-│ ├── parser.h
-│ ├── pipeline.h
-│ └── storage.h
+│   └── ddkcrawler
+│       ├── spider.h
+│       ├── scheduler.h
+│       ├── downloader.h
+│       ├── parser.h
+│       ├── pipeline.h
+│       └── storage.h
 │
 ├── src
-│ ├── main.cpp
-│ └── core
-│ ├── spider.cpp
-│ ├── scheduler.cpp
-│ ├── downloader.cpp
-│ ├── parser.cpp
-│ ├── pipeline.cpp
-│ └── storage.cpp
+│   ├── main.cpp
+│   └── core
+│       ├── spider.cpp
+│       ├── scheduler.cpp
+│       ├── downloader.cpp
+│       ├── parser.cpp
+│       ├── pipeline.cpp
+│       └── storage.cpp
+│
+├── tests
 │
 ├── legacy
 │
