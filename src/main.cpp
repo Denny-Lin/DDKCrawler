@@ -1,27 +1,15 @@
 #include <iostream>
+#include <ddkcrawler/scheduler.h>
 
-int main(int argc, char* argv[])
-{
-    std::cout << "DDKCrawler starting..." << std::endl;
+int main() {
 
-    // 1. initialize modules
-    std::cout << "[Init] Spider" << std::endl;
-    std::cout << "[Init] Scheduler" << std::endl;
-    std::cout << "[Init] Downloader" << std::endl;
-    std::cout << "[Init] Parser" << std::endl;
-    std::cout << "[Init] Pipeline" << std::endl;
-    std::cout << "[Init] Storage" << std::endl;
+    ddkcrawler::Scheduler scheduler;
 
-    std::cout << std::endl;
-    std::cout << "Crawler engine running..." << std::endl;
+    scheduler.push("https://example.com");
+    scheduler.push("https://github.com");
 
-    // crawler main loop (placeholder)
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << "[Engine] crawling task " << i << std::endl;
+    while (!scheduler.empty()) {
+        std::cout << scheduler.pop() << std::endl;
     }
 
-    std::cout << "Crawler finished." << std::endl;
-
-    return 0;
 }
