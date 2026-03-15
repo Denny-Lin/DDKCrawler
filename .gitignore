@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Visual Studio
+Debug/
+x64/
+
+# build files
+build/
+*.o
+*.exe
+*.out
