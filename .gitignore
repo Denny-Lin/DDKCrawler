@@ -1,6 +1,11 @@
 # macOS
 .DS_Store
 
+# build files
+crawler
+build/
+*.o
+
 # Visual Studio
 Debug/
 x64/
