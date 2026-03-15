@@ -31,13 +31,28 @@ Storage
 ## Project Structure
 ```
 DDKCrawler
-├─ core
-├─ spider
-├─ scheduler
-├─ downloader
-├─ parser
-├─ pipeline
-└─ storage
+├── include
+│ ├── spider.h
+│ ├── scheduler.h
+│ ├── downloader.h
+│ ├── parser.h
+│ ├── pipeline.h
+│ └── storage.h
+│
+├── src
+│ ├── main.cpp
+│ └── core
+│ ├── spider.cpp
+│ ├── scheduler.cpp
+│ ├── downloader.cpp
+│ ├── parser.cpp
+│ ├── pipeline.cpp
+│ └── storage.cpp
+│
+├── legacy
+│
+├── README.md
+└── .gitignore
 ```
 ---
 
