@@ -1,15 +1,15 @@
 #include <iostream>
-#include <ddkcrawler/scheduler.h>
+#include <ddkcrawler/downloader.h>
+
+using namespace ddkcrawler;
 
 int main() {
 
-    ddkcrawler::Scheduler scheduler;
+    Downloader downloader;
 
-    scheduler.push("https://example.com");
-    scheduler.push("https://github.com");
+    std::string html = downloader.get("https://example.com");
 
-    while (!scheduler.empty()) {
-        std::cout << scheduler.pop() << std::endl;
-    }
+    std::cout << html << std::endl;
 
+    return 0;
 }
