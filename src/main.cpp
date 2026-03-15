@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unordered_set>
 
 #include <ddkcrawler/downloader.h>
 #include <ddkcrawler/parser.h>
@@ -16,6 +17,8 @@ int main() {
     Parser parser;
     Scheduler scheduler;
 
+    std::unordered_set<std::string> visited;
+
     scheduler.push("https://example.com");
 
     int max_pages = 5;
@@ -24,6 +27,13 @@ int main() {
     while (!scheduler.empty() && count < max_pages) {
 
         std::string url = scheduler.pop();
+
+        // skip visited URLs
+        if (visited.count(url)) {
+            continue;
+        }
+
+        visited.insert(url);
 
         std::cout << "\nCrawling: " << url << std::endl;
 
@@ -34,21 +44,18 @@ int main() {
             continue;
         }
 
-        // title
         std::string title = parser.extract_title(html);
         std::cout << "Title: " << title << std::endl;
 
-        // extract links
         auto links = parser.extract_links(html);
-
-        // filter links
         auto filtered_links = parser.filter_links(links);
 
         for (const auto& link : filtered_links) {
 
-            std::cout << "Found link: " << link << std::endl;
+            if (!visited.count(link)) {
+                scheduler.push(link);
+            }
 
-            scheduler.push(link);
         }
 
         count++;
