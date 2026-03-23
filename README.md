@@ -1,8 +1,6 @@
-# DDKCrawler
+# ai-crawlflow
 
-DDKCrawler is a **web crawler framework written in C/C++** designed with a modular architecture.
-
-The design focuses on a simple and modular architecture inspired by modern crawler frameworks.
+ai-crawlflow is a web crawler framework written in C/C++ with a modular and extensible architecture. The design focuses on simplicity, modularity, and building a foundation for AI-ready data pipelines.
 
 ---
 
@@ -21,6 +19,14 @@ Parser
    │
    ▼
 Pipeline
+   │
+   +--> CleanStage
+   |
+   +--> FilterStage
+   |
+   +--> ChunkStage (optional AI)
+   |
+   +--> EmbeddingStage (optional AI)
    │
    ▼
 Storage
@@ -76,10 +82,12 @@ Handles network connections and downloads web pages or resources.
 Extracts links or data from downloaded content.
 
 ### Pipeline
-Processes extracted data.
+Processes Documents through a series of modular stages.  
+Supports optional AI-related stages such as text cleaning, chunking, and embedding.
 
 ### Storage
-Stores the final results.
+Stores processed Documents with support for structured data formats.  
+Designed to be extensible for future storage backends (e.g., JSON, databases, vector storage).
 
 ---
 
@@ -88,6 +96,20 @@ Stores the final results.
 - Modular crawler architecture  
 - URL queue system  
 - Parallel downloading support  
+- Extensible and pluggable pipeline design  
+- AI-ready data processing pipeline  
+
+---
+
+## Roadmap
+
+The project is evolving towards an AI-ready data pipeline framework:
+
+- [x] Core crawler architecture  
+- [ ] Data processing pipeline enhancements  
+- [ ] AI-ready pipeline stages (chunking, embedding)  
+- [ ] Vector storage integration  
+- [ ] Semantic search support  
 
 ---
 
@@ -99,4 +121,4 @@ C / C++
 
 ## Status
 
-Work in progress.
+Work in progress. Actively evolving towards an AI-ready data pipeline framework.
